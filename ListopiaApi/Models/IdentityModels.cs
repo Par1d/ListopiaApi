@@ -2,7 +2,9 @@
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using ListopiaApi.Models;
 using Microsoft.AspNet.Identity.Owin;
+using System.Data.Entity;
 
 namespace ListopiaApi.Models
 {
@@ -20,6 +22,8 @@ namespace ListopiaApi.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<List> Lists { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
